@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // call() apply() bind()
+        function fn(a,b) {
+            console.log(this);  
+            console.log(a,b);    
+        }
+        var obj = {
+            a: 10
+        }
+
+        //fn.call(obj,1,2);
+
+        // apply()
+        //fn.apply(obj,[1,2]);
+        var arr = [10,12,45,38];
+        var max = Math.max.apply(null,arr);
+        console.log(max);
+        
+        // bind() bind()可以改变函数中this指向 但它不会调用函数
+        // 返回由指定this值和初始化参数改造的原函数拷贝
+        var newFn = fn.bind(obj,1,3);
+        newFn();
+    </script>
+</body>
+</html>
